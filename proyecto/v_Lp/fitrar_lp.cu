@@ -16,6 +16,15 @@
 #define PINNED 0
 #endif
 
+// kernel para pasar a blanco y negro
+__global__ void KernelByN (int N, int M, unsigned char *A) {
+
+  int row = blockIdx.y * blockDim.y + threadIdx.y;
+  int col = blockIdx.x * blockDim.x + 3*threadIdx.x;
+
+  if(row < M && col < N)
+       A[row*N+col] = A[row*N+col+1] = A[row*N+col+2] = (A[row*N+col] + A[row*N+col+1] + A[row*N+col+2])/3;
+}
 
 // kernel elemento a elemento para el filtro Laplace
 
@@ -140,6 +149,7 @@ int main(int argc, char **argv) {
   cudaEventSynchronize(E1);
 
   // Ejecutar el kernel
+  KernelByN<<<dimGrid, dimBlock>>>(height, width, d_image);
   Laplace_kernel<<<dimGrid, dimBlock>>>(height, width, d_image, d_output);
 
   cudaEventRecord(E2, 0);
