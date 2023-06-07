@@ -20,7 +20,7 @@
 __global__ void KernelByN (int N, int M, unsigned char *A) {
 
   int row = blockIdx.y * blockDim.y + threadIdx.y;
-  int col = blockIdx.x * blockDim.x + 3*threadIdx.x;
+  int col = blockIdx.x * blockDim.x + threadIdx.x;
 
   if(row < M && col < N)
        A[row*N+col] = A[row*N+col+1] = A[row*N+col+2] = (A[row*N+col] + A[row*N+col+1] + A[row*N+col+2])/3;
