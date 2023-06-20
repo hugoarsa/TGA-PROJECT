@@ -15,10 +15,6 @@ Y para ejecutarlo con una CPU de forma no interactiva se ha de usar
 De forma interactiva basta con ejecutarlo tal cual especificando imagen de entrada y salida
 ```./filtrar.exe <imagen entrada> <imagen salida>```
 
-Si queremos observar como va la ejecución de forma dinamica (ver cuanto tiempo lleva, como 
-va en la cola, si alguien la ocupa antes que nosotros) podemos usar
-```watch squeue```
-
 ### Cosas a destacar de la version
 
 Esta version tiene como unica funcion comenzar a tontear con el algoritmo a paralelizar y 
