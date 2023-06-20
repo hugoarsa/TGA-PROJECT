@@ -1,6 +1,6 @@
-# Version 2 del kernel para Gauss-Seidel
+# Version 4 del kernel para Convolve
 
-Aqui podemos encontrar la tercera version donde trabajamos diversos kernels
+Aqui podemos encontrar la cuarta version donde trabajamos diversos kernels
 mediante el uso de flags, haciendo uso también de shared memory
 
 ### Como ejecutar
